@@ -1,6 +1,6 @@
 = OpenResearch-Stack Stages
 
-[mermaid]
+[source,mermaid]
 ....
 flowchart LR
     subgraph Public Repositories
