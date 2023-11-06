@@ -1,0 +1,34 @@
+= OpenResearch-Stack Stages
+
+[mermaid]
+....
+flowchart LR
+    subgraph Public Repositories
+        direction LR
+        subgraph Stage One
+            DORS(docker-openresearch-stack)
+        end
+        subgraph Stage Two
+            DCID(docker-confident)
+            D1153(docker-smw-crc1153)
+            DORS --> DCID
+            DORS --> D1153
+        end
+    end
+    subgraph Private Repositories
+        direction LR
+        subgraph Stage Three
+            CIDBOX(confident-box)
+            1153BOX(smw-crc1153-box)
+            DCID --> CIDBOX
+            D1153 --> 1153BOX
+        end
+        subgraph Stage Four
+            CIDCFG(confident-config)
+            1153CFG(smw-crc1153-config)
+            CIDBOX --> CIDCFG
+            1153BOX --> 1153CFG
+        end
+    end
+....
+

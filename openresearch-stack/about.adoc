@@ -1,0 +1,1 @@
+The OpenReasearch-Stack is a container virtualized (Semantic) MediaWiki for development, testing and a basis for derived projects. It contains MediaWiki, common extensions and all the basic configurations required for this. The resulting Docker image can be extended and used in Docker Compose setups along with other services such as ElasticSearch or Triple Stores.

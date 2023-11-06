@@ -1,0 +1,15 @@
+= OpenResearch-Stack Building Blocks
+
+[%noheader, cols="1,1"]
+|===
+2+^| {set:cellbgcolor:#BB7F72} [white]#*MediaWiki Extensions & Skin*#
+
+2+^| [.white]#*MediaWiki*#
+
+^| [.white]#*Webserver*#
+^| [.white]#*Database*#
+
+2+^| {set:cellbgcolor:#AB4230} [white]#*Operating System Packages*#
+2+^| {set:cellbgcolor:#AB4230} [white]#*Operating System Base Image(s)*#
+|===
+
