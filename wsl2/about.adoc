@@ -1,0 +1,1 @@
+WSL2 (Windows Subsystem for Linux 2) is a compatibility layer in Windows that allows the execution of a Linux kernel in a lightweight containerized environment alongside the Windows operating system.

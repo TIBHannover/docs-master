@@ -1,0 +1,84 @@
+= WSL2 and Windows Terminal Setup Guide on Windows 10
+
+== 1. Ensure Windows 10 Version Compatibility
+WSL2 requires Windows 10, version 1903 or higher, with Build 18362 or higher. To check your version of Windows:
+
+- Press `Win + R` and type `winver`, then press Enter.
+- If your version is lower than 1903, you'll need to update Windows before proceeding.
+
+== 2. Enable WSL (Windows Subsystem for Linux)
+You must enable the WSL feature in Windows. Here's how:
+
+- Open **PowerShell** as Administrator:
+  - Right-click on the Start Menu and select **Windows PowerShell (Admin)**.
+- Run the following command to enable the WSL feature:
+
+[source,bash]
+----
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+----
+
+== 3. Enable Virtual Machine Platform
+WSL2 requires the Virtual Machine Platform feature. Run the following command in PowerShell (still as Admin):
+
+[source,bash]
+----
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+----
+
+After running this command, **restart your PC**.
+
+== 4. Set WSL2 as the Default Version
+Once your PC has restarted, open PowerShell again and set WSL2 as the default version using the command:
+
+[source,bash]
+----
+wsl --set-default-version 2
+----
+
+== 5. Manually Trigger a WSL Kernel Update
+To ensure your WSL kernel is up to date, you can manually check for updates and install the latest kernel. Run the following command in PowerShell:
+
+[source,bash]
+----
+wsl --update
+----
+
+This will update your WSL installation to the latest version and ensure the most recent kernel is installed.
+
+You can verify the current version with:
+
+[source,bash]
+----
+wsl --version
+----
+
+== 6. Install a Linux Distribution
+Now, you need to install a Linux distribution from the Microsoft Store.
+
+- Open the **Microsoft Store** from the Start Menu.
+- Search for a Linux distribution like **Ubuntu**, **Debian**, or **openSUSE**. For most users, **Ubuntu** is a good choice.
+- Click **Install** to download and install the distribution.
+
+Once installed, launch the Linux distribution from the Start Menu to complete the initial setup. The first time you open it, you'll be prompted to create a UNIX username and password.
+
+== 7. Install Windows Terminal from the Microsoft Store
+Windows Terminal provides a modern interface for using WSL. To install it:
+
+- Open the **Microsoft Store**.
+- Search for **Windows Terminal**.
+- Click **Get** or **Install**.
+
+Once installed, you can open **Windows Terminal** from the Start Menu.
+
+== 8. Configure Windows Terminal to Use WSL2
+By default, Windows Terminal may open PowerShell. You can configure it to open WSL by default:
+
+- Open **Windows Terminal**.
+- Click on the **down arrow** next to the tab bar, then select **Settings**.
+- Under **Profiles** on the left-hand menu, select your Linux distribution (e.g., Ubuntu).
+- Scroll down and ensure it is set to use **WSL2**.
+- If you want WSL2 to be the default profile, scroll to the **Startup** tab and set your Linux profile (e.g., Ubuntu) as the default profile.
+
+Now, each time you open Windows Terminal, it will open your Linux environment in WSL2.
+
