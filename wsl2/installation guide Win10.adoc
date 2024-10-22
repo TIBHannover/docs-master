@@ -94,3 +94,58 @@ By default, Windows Terminal may open PowerShell. You can configure it to open W
 
 Now, each time you open Windows Terminal, it will open your Linux environment in WSL2.
 
+== 9. Enabling systemd Support in WSL
+
+Many Linux distributions, including **Debian**, use `systemd` as their default system and service manager. WSL has support for `systemd`, but it's not enabled by default. To enable `systemd` in WSL, follow these steps:
+
+=== Open the WSL Terminal and Edit the Configuration File
+
+In your WSL terminal (Debian or any other distribution), you need to edit the `wsl.conf` file to enable `systemd`. This requires root privileges, so use the `sudo` command to run the `nano` editor with elevated permissions:
+
+[source,bash]
+----
+sudo nano /etc/wsl.conf
+----
+
+=== Modify the wsl.conf File to Enable systemd
+
+Once the file is open in the `nano` editor, add the following lines (or modify them if they already exist) under the `[boot]` section:
+
+[source]
+----
+[boot]
+systemd=true
+----
+
+This configuration enables `systemd` to start when the WSL environment is booted.
+
+=== Save the Changes and Exit nano
+
+To save the changes in `nano`, follow these steps:
+- Press `Ctrl + O` to write the changes (you'll be asked to confirm the file name, press `Enter`).
+- Press `Ctrl + X` to exit the editor.
+
+=== Restart WSL
+
+After modifying the configuration file, you'll need to restart WSL for the changes to take effect. Run the following command from your Windows **PowerShell** (not inside WSL) to restart the WSL service:
+
+[source,bash]
+----
+wsl --shutdown
+----
+
+After running this command, relaunch your WSL distribution by typing `wsl` or launching it from the Start Menu.
+
+=== Verify systemd is Running
+
+Once WSL is restarted, you can verify that `systemd` is running by checking the status of a known `systemd` service. For example, check the status of the **dbus** service:
+
+[source,bash]
+----
+sudo systemctl status dbus
+----
+
+If `systemd` is enabled successfully, you will see the service status and `systemd`-specific output.
+
+
+
