@@ -54,13 +54,25 @@ wsl --version
 ----
 
 == 6. Install a Linux Distribution
-Now, you need to install a Linux distribution from the Microsoft Store.
+To see a list of available Linux distributions:
 
-- Open the **Microsoft Store** from the Start Menu.
-- Search for a Linux distribution like **Ubuntu**, **Debian**, or **openSUSE**. For most users, **Ubuntu** is a good choice.
-- Click **Install** to download and install the distribution.
+[source,bash]
+----
+wsl --list --online
+----
 
-Once installed, launch the Linux distribution from the Start Menu to complete the initial setup. The first time you open it, you'll be prompted to create a UNIX username and password.
+This will display a list of distributions that can be installed.
+
+To install **Debian**, use the following command:
+
+[source,bash]
+----
+wsl --install -d Debian
+----
+
+This command will download, install and launch Debian.
+
+Once the installation is complete, Debian is launched. You'll be prompted to create a UNIX username and password.
 
 == 7. Install Windows Terminal from the Microsoft Store
 Windows Terminal provides a modern interface for using WSL. To install it:
