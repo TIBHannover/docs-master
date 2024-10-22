@@ -1,0 +1,53 @@
+= Docker, Docker Compose Setup Guide on Debian
+
+Based on https://docs.docker.com/engine/install/debian/
+
+== Uninstall old versions
+Before you can install Docker Engine, you need to uninstall any conflicting packages.
+
+Distro maintainers provide unofficial distributions of Docker packages in their repositories. You must uninstall these packages before you can install the official version of Docker Engine.
+
+Run the following command to uninstall all conflicting packages:
+
+[source,bash]
+----
+for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+----
+
+`apt-get` might report that you have none of these packages installed.
+
+== Install using the apt repository
+Before you install Docker Engine for the first time on a new host machine, you need to set up the Docker apt repository. Afterward, you can install and update Docker from the repository.
+
+=== Set up Docker's apt repository
+[source,bash]
+----
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+----
+
+=== Install the Docker packages
+To install the latest version, run:
+[source,bash]
+----
+sudo apt-get install make docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+----
+
+=== Verify that the installation is successful by running the hello-world image
+
+[source,bash]
+----
+sudo docker run hello-world
+----
+This command downloads a test image and runs it in a container. When the container runs, it prints a confirmation message and exits.

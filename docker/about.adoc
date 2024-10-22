@@ -1,0 +1,1 @@
+Docker provides an additional layer of abstraction and automation of operating-system-level virtualization on Windows and Linux.
