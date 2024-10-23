@@ -138,11 +138,11 @@ After running this command, relaunch your WSL distribution by typing `wsl` or la
 
 === Verify systemd is Running
 
-Once WSL is restarted, you can verify that `systemd` is running by checking the status of a known `systemd` service. For example, check the status of the **dbus** service:
+Once WSL is restarted, you can verify that `systemd` is running by checking the status of a known `systemd` service. For example, check the status of the **cron** service:
 
 [source,bash]
 ----
-sudo systemctl status dbus
+sudo systemctl status cron
 ----
 
 If `systemd` is enabled successfully, you will see the service status and `systemd`-specific output.
