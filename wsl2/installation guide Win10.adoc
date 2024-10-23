@@ -100,7 +100,7 @@ Many Linux distributions, including **Debian**, use `systemd` as their default s
 
 === Open the WSL Terminal and Edit the Configuration File
 
-In your WSL terminal (Debian or any other distribution), you need to edit the `wsl.conf` file to enable `systemd`. This requires root privileges, so use the `sudo` command to run the `nano` editor with elevated permissions:
+Now that Debian is installed in WSL, open the Debian terminal (not PowerShell) to proceed. You need to edit the `wsl.conf` file within the Debian environment to enable systemd. This step requires root privileges, so use the sudo command to run the nano editor with elevated permissions:
 
 [source,bash]
 ----
